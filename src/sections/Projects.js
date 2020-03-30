@@ -46,7 +46,11 @@ const Description = styled.h4`
   margin-top: 3rem;
   font-weight: 220;
   font-size: 1.3rem;
-  line-height: 1.2;
+  line-height: 1.6;
+  text-align: center;
+`
+const Subhead = styled.h5`
+  font-size: 1rem;
 `
 
 const Projects = () => {
@@ -68,7 +72,12 @@ const Projects = () => {
           </a>
           <Description>
             My Portfolio website where you can learn more about me and the
-            projects that I've made so far!
+            projects that I've made so far! Since I know React, I decided I
+            wanted to practice making a website using an Static Website
+            Generator such as Gatsby.
+            <br />
+            <br />
+            <Subhead>-Built with Gatsby & Styled Components</Subhead>
           </Description>
         </Project>
 
@@ -85,8 +94,15 @@ const Projects = () => {
             </Wrapper>
           </a>
           <Description>
-            My Portfolio website where you can learn more about me and the
-            projects that I've made so far!
+            An Application that pulls stats from all NBA Players from an API.
+            You can query for individual players or scan through the pages to
+            view the huge list of players. I used this app as an opportunity to
+            practice using Redux for state management.
+            <br />
+            <br />
+            <Subhead>
+              -Built with React, Redux, Styled Components and Semantic UI
+            </Subhead>
           </Description>
         </Project>
 
@@ -103,8 +119,15 @@ const Projects = () => {
             </Wrapper>
           </a>
           <Description>
-            This is an application I built for tracking COVID-19 stats
-            worldwide.
+            A simple application that fetches data regarding COVID-19 stats
+            worldwide. Choose the country you want to display stats for, and it
+            will render within the card in the middle of the screen. I used this
+            as well as another opportunity to practice using React Hooks and
+            creating my own custom Hooks. Here I created a custom Hook that on
+            page load would fetch the data for all Countries from an endpoint.
+            <br />
+            <br />
+            <Subhead>-Built with React & Styled Components</Subhead>
           </Description>
         </Project>
         <Project>
@@ -120,7 +143,16 @@ const Projects = () => {
             </Wrapper>
           </a>
           <Description>
-            Weather Application built with Vanilla Javascript
+            Weather Application that was my very first unlead project built with
+            Vanilla JavaScript. After going through a couple tutorials, I
+            decided that I wanted to practice the knowledge I had retained and
+            built this app. On page load, it will ask to pull your geolocation
+            in order to display the correct data per your specific long and lat.
+            I also implemented a simple toggle button that will convert from
+            Fahrenheit to Celcius!
+            <br />
+            <br />
+            <Subhead>-Built with HTML, CSS and JavaScript</Subhead>
           </Description>
         </Project>
       </ProjectsContainer>
