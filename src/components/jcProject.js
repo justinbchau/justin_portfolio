@@ -2,12 +2,12 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
-const Image = () => {
+const JcProject = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "jc-icon.png" }) {
+      placeholderImage: file(relativePath: { eq: "jc-homepage.png" }) {
         childImageSharp {
-          fluid(maxWidth: 1100) {
+          fluid(maxWidth: 2100) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -18,4 +18,4 @@ const Image = () => {
   return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
 }
 
-export default Image
+export default JcProject
