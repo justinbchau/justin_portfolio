@@ -6,6 +6,8 @@ import JcProject from "../components/jcProject"
 import Erase2020 from "../components/eraseProject"
 import Weather from "../components/weatherProject"
 
+import { device } from "../styles/media"
+
 const ProjectsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -15,6 +17,14 @@ const ProjectsContainer = styled.div`
 
   a: {
     text-decoration: none;
+  }
+
+  @media ${device.mobile} {
+    display: block;
+  }
+
+  @media ${device.tablet} {
+    display: block;
   }
 `
 
@@ -30,6 +40,10 @@ const Wrapper = styled.div`
   &:hover {
     transform: translateY(-5px);
   }
+
+  @media ${device.mobile} {
+    width: 70%;
+  }
 `
 
 const Project = styled.div`
@@ -40,6 +54,14 @@ const Project = styled.div`
 const Head = styled.h1`
   font-weight: 500;
   margin-top: 3rem;
+
+  @media ${device.mobile} {
+    font-size: 1.3rem;
+  }
+
+  @media ${device.tablet} {
+    padding: 1rem;
+  }
 `
 
 const Description = styled.h4`
@@ -48,8 +70,24 @@ const Description = styled.h4`
   font-size: 1.3rem;
   line-height: 1.6;
   text-align: center;
+
+  @media ${device.mobile} {
+    font-size: 1rem;
+    width: 70%;
+    margin: 1rem auto;
+  }
+
+  @media ${device.tablet} {
+    width: 80%;
+    margin: 2rem auto;
+  }
+
+  @media ${device.desktop} {
+    width: 90%;
+    margin: 4rem auto;
+  }
 `
-const Subhead = styled.h5`
+const Subhead = styled.p`
   font-size: 1rem;
 `
 
@@ -64,7 +102,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
             title="Justin Portfolio"
-            href="#"
+            href="https://chaucodes.com"
           >
             <Wrapper>
               <JcProject />

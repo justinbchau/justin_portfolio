@@ -1,38 +1,140 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { useSpring, animated, config } from "react-spring"
 import { Link } from "react-scroll"
+import { device } from "../styles/media"
+
+const size = {
+  small: 400,
+  medium: 960,
+  large: 1140,
+}
+
+const above = Object.keys(size).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media (min-width: ${size[label]}px) {
+      ${css(...args)}
+    }
+  `
+
+  return acc
+}, {})
+
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-rows: auto;
+  width: 100%;
+  height: 100%;
+
+  @media ${device.mobile} {
+    margin-top: -50px;
+    margin-right: 0px;
+    width: 90%;
+  }
+
+  @media ${device.tablet} {
+    width: 100%;
+  }
+`
 
 const Title = styled(animated.h1)`
   font-weight: 300;
-  margin: 0 auto;
   margin-bottom: 1rem;
   margin-top: 15rem;
   line-height: 1.3;
-  font-size: 5rem;
+  font-size: 4rem;
   transition: color 0.2s ease-out;
+
+  @media ${device.mobile} {
+    font-size: 3rem;
+    margin-top: 13rem;
+  }
+
+  @media ${device.tablet} {
+    margin-left: 3rem;
+    margin-right: 0;
+  }
+
+  @media ${device.desktop} {
+    margin-left: 25rem;
+  }
 `
 
 const Subtitle = styled(animated.h2)`
   font-weight: 300;
   line-height: 1.3;
   font-size: 4rem;
-  margin-left: 6.5rem;
+
   transition: color 0.2s ease-out;
+
+  @media ${device.mobile} {
+    font-size: 2.5rem;
+    margin-left: 1rem;
+  }
+
+  @media ${device.tablet} {
+    font-size: 3rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+
+  /* @media ${device.desktopS} {
+    margin-left: 10rem;
+  } */
+
+  @media ${device.desktop} {
+    margin-left: 27rem;
+  }
 `
 
 const Heading = styled(animated.h3)`
   font-weight: 200;
   line-height: 1.3;
   font-size: 1.5rem;
-  margin-left: 0.5rem;
+  margin-left: 1rem;
+
+  @media ${device.mobile} {
+    font-size: 1rem;
+    margin-right: 3rem;
+  }
+
+  @media ${device.tablet} {
+    font-size: 1rem;
+    margin-left: 6rem;
+    margin-top: 2rem;
+    margin-right: 0px;
+    width: 60%;
+  }
+
+  @media ${device.desktop} {
+    margin-top: 2rem;
+    margin-left: 21.5rem;
+  }
+`
+
+const ButtonWrap = styled.div`
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  margin-top: 10rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
+
+  @media ${device.mobile} {
+    margin: 6rem auto;
+    display: block;
+  }
+
+  @media ${device.tablet} {
+    margin: 8rem auto;
+  }
 `
 
 const ScrollButton = styled(animated.button)`
+  display: grid;
   font-size: 1.2rem;
   cursor: pointer;
   outline: none;
-  margin: 0rem;
+  margin: auto;
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -45,7 +147,6 @@ const ScrollButton = styled(animated.button)`
   text-decoration: none;
   letter-spacing: 1.8px;
   box-shadow: 0px 2px 2px #000;
-  margin-bottom: 2rem;
 
   &:hover,
   :active {
@@ -54,15 +155,17 @@ const ScrollButton = styled(animated.button)`
   }
 `
 
-const ButtonWrap = styled.div`
-  display: grid;
-  grid-template-rows: auto;
-  margin-top: 20rem;
-  margin-left: 20rem;
-  margin-right: 20rem;
+const HeadingWrap = styled.div`
+  margin-top: 2rem;
+  margin-left: 26rem;
+
+  @media ${device.mobile} {
+    margin: auto;
+  }
 `
 
 const Home = () => {
+  //Animations
   const TitleSpring = useSpring({
     config: config.wobbly,
     delay: 300,
@@ -94,7 +197,7 @@ const Home = () => {
   })
 
   return (
-    <div style={{ margin: `auto`, width: 940 }}>
+    <Wrapper>
       <Title style={TitleSpring}>
         Hi there{" "}
         <span role="img" aria-label="and emoji">
@@ -103,12 +206,12 @@ const Home = () => {
       </Title>
       <Subtitle style={SubSpring}>I'm Justin,</Subtitle>
       <Heading style={HeadSpring}>A Self-Taught Front End Developer</Heading>
-      <Link to="about-me" spy={true} smooth={true} offset={-80}>
-        <ButtonWrap>
+      <ButtonWrap>
+        <Link to="about-me" spy={true} smooth={true} offset={-80}>
           <ScrollButton style={ButtonSpring}>About Me</ScrollButton>
-        </ButtonWrap>
-      </Link>
-    </div>
+        </Link>
+      </ButtonWrap>
+    </Wrapper>
   )
 }
 

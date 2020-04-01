@@ -7,6 +7,8 @@ import {
   Youtube,
 } from "@icons-pack/react-simple-icons"
 
+import { device } from "../styles/media"
+
 const SocialWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -33,6 +35,10 @@ const SocialButton = styled.a`
   :focus,
   :active {
     transform: scale(1.1);
+  }
+
+  @media ${device.mobile} {
+    width: 30%;
   }
 `
 

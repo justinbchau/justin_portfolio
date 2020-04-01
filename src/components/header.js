@@ -3,47 +3,80 @@ import PropTypes from "prop-types"
 import React from "react"
 import Image from "./image"
 import styled from "styled-components"
-
-const StyledHeader = styled.header`
-  width: 100%;
-  max-width: 100vw;
-  top: 0;
-  left: 0;
-`
+import { device } from "../styles/media"
 
 const StyledNav = styled.nav`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 100vw;
   background-color: #1b262c;
   box-shadow: 3px 3px 3px #204051;
-  height: 5rem;
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
+
+  @media ${device.desktop} {
+    display: flex;
+    justify-content: space-between;
+  }
 `
 
-const Icon = styled.h1`
-  margin-left: 1rem;
-  align-items: center;
-  justify-content: flex-start;
-  width: 5rem;
-  margin-right: 55%;
+const Icon = styled.li`
+  list-style: none;
+  grid-column: 1 / 4;
+  width: 4rem;
+
+  @media ${device.mobile} {
+    margin: 0;
+  }
+
+  @media ${device.tablet} {
+    margin: auto;
+  }
 `
 
 const AboutMe = styled(Link)`
-  font-family: Fira Sans;
-  justify-content: flex-end;
   cursor: pointer;
-  font-size: 1.2rem;
   color: white;
-  display: flex;
-  padding: 1.3rem;
-  justify-content: flex-end;
-  align-items: center;
   text-decoration: none;
   transition: color 0.2s ease-out;
 
   :hover {
     color: #f3c623;
+  }
+`
+
+const StyledUl = styled.ul`
+  @media ${device.mobile} {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    justify-items: center;
+  }
+  @media ${device.tablet} {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  @media ${device.desktop} {
+    display: flex;
+    align-items: center;
+  }
+`
+
+const ListItem = styled.li`
+  list-style: none;
+
+  @media ${device.mobile} {
+  }
+
+  @media ${device.desktop} {
+    margin-right: 30px;
+    &:last-child {
+      margin-right: 5rem;
+    }
   }
 `
 
@@ -54,25 +87,36 @@ const Projects = styled(AboutMe)``
 const Contact = styled(AboutMe)``
 
 const Header = () => (
-  <StyledHeader>
-    <StyledNav>
-      <Icon>
-        <Image />
-      </Icon>
-      <AboutMe to="about-me" spy={true} smooth={true} offset={-80}>
-        About Me
-      </AboutMe>
-      <Skills to="my-skills" spy={true} smooth={true} offset={-80}>
-        Skills
-      </Skills>
-      <Projects to="my-projects" spy={true} smooth={true} offset={-80}>
-        Projects
-      </Projects>
-      <Contact to="contact-me" spy={true} smooth={true} offset={-80}>
-        Contact Me
-      </Contact>
-    </StyledNav>
-  </StyledHeader>
+  <StyledNav>
+    <Icon>
+      <Image />
+    </Icon>
+    <StyledUl>
+      <ListItem>
+        <AboutMe to="about-me" spy={true} smooth={true} offset={-80}>
+          About Me
+        </AboutMe>
+      </ListItem>
+
+      {/* <ListItem>
+        <Skills to="my-skills" spy={true} smooth={true} offset={-80}>
+          Skills
+        </Skills>
+      </ListItem> */}
+
+      <ListItem>
+        <Projects to="my-projects" spy={true} smooth={true} offset={-80}>
+          Projects
+        </Projects>
+      </ListItem>
+
+      <ListItem>
+        <Contact to="contact-me" spy={true} smooth={true} offset={-80}>
+          Contact Me
+        </Contact>
+      </ListItem>
+    </StyledUl>
+  </StyledNav>
 )
 
 Header.propTypes = {
