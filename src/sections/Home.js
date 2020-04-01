@@ -127,6 +127,10 @@ const ButtonWrap = styled.div`
   @media ${device.tablet} {
     margin: 8rem auto;
   }
+
+  @media ${device.desktop} {
+    margin-bottom: 17rem;
+  }
 `
 
 const ScrollButton = styled(animated.button)`
