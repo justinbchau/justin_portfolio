@@ -2,6 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import { Container, Header } from "../styles/ui"
 
+import { device } from "../styles/media"
+
 const List = styled.ul`
   display: flex;
   flex-direction: row;
@@ -14,6 +16,24 @@ const List = styled.ul`
   font-family: inherit;
   margin: 5rem auto;
   width: 70%;
+
+  @media ${device.mobile} {
+    display: block;
+    line-height: 1.9;
+    margin: 0 auto;
+    font-size: 1.3rem;
+  }
+
+  @media ${device.tablet} {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: auto;
+
+    li {
+      padding-top: 3rem;
+    }
+  }
 `
 
 const Skills = () => {

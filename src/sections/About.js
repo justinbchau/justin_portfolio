@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Container, Header } from "../styles/ui"
 // import { graphql, useStaticQuery } from "gatsby"
+import { device } from "../styles/media"
 
 const ContentWrapper = styled.div`
   padding: 2rem;
@@ -10,7 +11,14 @@ const ContentWrapper = styled.div`
   line-height: 1.8;
   font-weight: 400;
   width: 60%;
-  font-family: Fira Sans;
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
+
+  @media ${device.tablet} {
+    width: 100%;
+  }
 `
 const StyledLink = styled.a`
   color: inherit;
