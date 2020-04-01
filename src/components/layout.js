@@ -27,6 +27,9 @@ const Section = styled.main`
   @media ${device.tablet} {
     flex: 1;
   }
+
+  @media ${device.desktop} {
+  }
 `
 
 const Layout = ({ children }) => {
