@@ -68,7 +68,7 @@ const Socials = () => {
       </SocialButton>
       <SocialButton
         rel="noreferrer"
-        href="https://www.linkedin.com/in/justin-chau-3a806764/"
+        href="https://www.linkedin.com/in/chaucodes/"
         target="blank"
       >
         <Linkedin color="#0077B5" size={40} />
