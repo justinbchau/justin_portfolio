@@ -125,7 +125,7 @@ const Projects = () => {
             target="_blank"
             title="NBA Stats Project"
             rel="noopener noreferrer"
-            href="https://eager-brown-f8c19d.netlify.com/"
+            href="https://nbaplayerstats.netlify.com/"
           >
             <Wrapper>
               <NBAProject />
