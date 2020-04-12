@@ -1,24 +1,8 @@
 import React from "react"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { useSpring, animated, config } from "react-spring"
 import { Link } from "react-scroll"
 import { device } from "../styles/media"
-
-const size = {
-  small: 400,
-  medium: 960,
-  large: 1140,
-}
-
-const above = Object.keys(size).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (min-width: ${size[label]}px) {
-      ${css(...args)}
-    }
-  `
-
-  return acc
-}, {})
 
 const Wrapper = styled.div`
   display: grid;
@@ -156,15 +140,6 @@ const ScrollButton = styled(animated.button)`
   :active {
     transform: translateY(-2px);
     box-shadow: 0px 10px 20px #000;
-  }
-`
-
-const HeadingWrap = styled.div`
-  margin-top: 2rem;
-  margin-left: 26rem;
-
-  @media ${device.mobile} {
-    margin: auto;
   }
 `
 

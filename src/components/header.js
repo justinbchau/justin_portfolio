@@ -23,6 +23,7 @@ const Icon = styled.li`
   list-style: none;
   grid-column: 1 / 4;
   width: 4rem;
+  cursor: pointer;
 
   @media ${device.mobile} {
     margin: 0;
@@ -80,7 +81,7 @@ const ListItem = styled.li`
   }
 `
 
-const Skills = styled(AboutMe)``
+// const Skills = styled(AboutMe)``
 
 const Projects = styled(AboutMe)``
 

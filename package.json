@@ -8,7 +8,7 @@
     "@icons-pack/react-simple-icons": "^2.5.0",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.19.45",
-    "gatsby-image": "^2.2.44",
+    "gatsby-image": "^2.3.2",
     "gatsby-plugin-manifest": "^2.3.3",
     "gatsby-plugin-offline": "^3.0.41",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
